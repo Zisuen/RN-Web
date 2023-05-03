@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { StyleSheet } from "react-native";
-import { ThemesContext } from "../../store/ThemesContext";
+import { COLOR } from "../colors/colors";
 
 // ! 1482 pixels to work with
-const webView = (theme) => {
-  const thomas = useContext(ThemesContext).theme;
+const webView = (theme: COLOR) => {
   return StyleSheet.create({
-    appContainer: {
+    appWrapper: {
       flex: 1,
+      backgroundColor: theme.primary,
     },
     rootContainer: {
       flex: 1,
@@ -27,22 +26,21 @@ const webView = (theme) => {
     },
     recipesContainer: {
       flex: 1,
-      marginHorizontal: 5,
-      paddingTop: 10,
-      paddingLeft: 15,
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: "#000000",
-      backgroundColor: thomas.primary,
+      marginHorizontal: 10,
+      paddingTop: 20,
+      paddingHorizontal: 30,
+      backgroundColor: theme.tertiary,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
     },
     mainBodyContainer: {
       flex: 3,
-      marginHorizontal: 5,
-      paddingTop: 10,
-      paddingLeft: 15,
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: "#000000",
+      marginHorizontal: 10,
+      paddingTop: 20,
+      paddingHorizontal: 30,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      backgroundColor: theme.secondary,
     },
     text: {
       color: theme.text,

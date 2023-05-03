@@ -2,32 +2,23 @@ import React from "react";
 import { useContext } from "react";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-web";
-import TopBar from "../components/web-components/TopBar";
+import AppWrapper from "../components/AppWrapper";
+import TopBar from "../components/TopBar/TopBar";
+import ViewHelper from "../components/ViewHelper";
+
+import getStyle from "../config/styles/getStyle";
 import { ThemesContext } from "../store/ThemesContext";
 
 const AddRecipeScreen = () => {
   const theme = useContext(ThemesContext);
-  const styles = theme.style;
+  const styles = getStyle(theme.appData.isWeb);
 
   return (
-    <View
-      style={[
-        styles.appContainer,
-        { backgroundColor: theme.theme.appBackground },
-      ]}
-    >
-      <View style={styles.rootContainer}>
-        <TopBar />
-        <Text style={styles.text}>Add Recipe</Text>
-        <TouchableOpacity
-          style={styles.themeSwitchBtn}
-          onPress={theme.switchTheme}
-        >
-          <Text>THEME</Text>
-        </TouchableOpacity>
-        <Text>{theme.appWidth}</Text>
-      </View>
-    </View>
+    <AppWrapper>
+      {/* <ViewHelper /> */}
+      <TopBar />
+      <Text style={styles.text}>Add Recipe</Text>
+    </AppWrapper>
   );
 };
 
