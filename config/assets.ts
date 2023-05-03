@@ -16,6 +16,9 @@ const getAsset = () => {
     homeBtn: isDark
       ? require("../assets/Icons/home_dark.png")
       : require("../assets/Icons/home_light.png"),
+    closeBtn: isDark
+      ? require("../assets/Icons/close_dark.png")
+      : require("../assets/Icons/close_light.png"),
   };
 };
 

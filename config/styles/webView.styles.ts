@@ -25,7 +25,6 @@ const webView = (theme: COLOR) => {
       height: "100%",
     },
     recipesContainer: {
-      flex: 1,
       marginHorizontal: 10,
       paddingTop: 20,
       paddingHorizontal: 30,
@@ -34,7 +33,7 @@ const webView = (theme: COLOR) => {
       borderTopRightRadius: 20,
     },
     mainBodyContainer: {
-      flex: 3,
+      flex: 1,
       marginHorizontal: 10,
       paddingTop: 20,
       paddingHorizontal: 30,
@@ -47,6 +46,36 @@ const webView = (theme: COLOR) => {
       fontSize: 50,
     },
     themeSwitchBtn: {},
+    recipeLabelContainer: {
+      justifyContent: "center",
+      backgroundColor: theme.secondary,
+      paddingVertical: 10,
+      marginBottom: 20,
+      borderRadius: 15,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: theme.text,
+      shadowColor: theme.text,
+      shadowOffset: { width: -5, height: 5 },
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+    },
+    recipeLabelContainerOff: {
+      justifyContent: "center",
+      backgroundColor: theme.secondaryOff,
+      paddingVertical: 10,
+      marginBottom: 20,
+      borderRadius: 15,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: theme.text,
+      shadowColor: theme.text,
+      shadowOffset: { width: -5, height: 5 },
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+    },
+    recipeLabelText: {
+      fontSize: 35,
+      marginHorizontal: 20,
+    },
   });
 };
 

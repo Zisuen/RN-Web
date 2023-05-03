@@ -45,6 +45,36 @@ const phoneView = (theme: COLOR) => {
       color: theme.text,
     },
     themeSwitchBtn: {},
+    recipeLabelContainer: {
+      justifyContent: "center",
+      backgroundColor: theme.secondary,
+      paddingVertical: 10,
+      marginBottom: 20,
+      borderRadius: 15,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: theme.text,
+      shadowColor: theme.text,
+      shadowOffset: { width: -5, height: 5 },
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+    },
+    recipeLabelContainerOff: {
+      justifyContent: "center",
+      backgroundColor: theme.secondaryOff,
+      paddingVertical: 10,
+      marginBottom: 20,
+      borderRadius: 15,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: theme.text,
+      shadowColor: theme.text,
+      shadowOffset: { width: -5, height: 5 },
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+    },
+    recipeLabelText: {
+      fontSize: 35,
+      marginHorizontal: 15,
+    },
   });
 };
 
