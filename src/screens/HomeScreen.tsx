@@ -1,19 +1,16 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { StyleContext } from "../store/StyleContext";
+import homeScreen_style from "../styles/HomeScreen.styles";
 
 const HomeScreen = () => {
-  const { scale, isPhone, styleValues } = useContext(StyleContext);
-
-  const styles = StyleSheet.create({
-    text: {
-      fontSize: styleValues.text.large,
-    },
-  });
+  const { switchTheme } = useContext(StyleContext);
+  const styles = homeScreen_style(useContext(StyleContext));
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       <Text style={styles.text}>Hello</Text>
+      <TouchableOpacity style={styles.themeBtn} onPress={switchTheme} />
     </View>
   );
 };

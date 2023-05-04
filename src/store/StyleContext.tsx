@@ -1,11 +1,14 @@
 import React, { createContext, useState, useEffect } from "react";
 import { Dimensions } from "react-native";
-import { getValues, STYLE } from "../config/global.style";
+import { COLOR, dark, getValues, light, STYLE } from "../config/global.style";
 
 type Props = {
   scale: number;
   isPhone: boolean;
   styleValues: STYLE;
+  theme: COLOR;
+  switchTheme: () => void;
+  resize: (value: number) => number;
 };
 
 export const StyleContext = createContext<Props>({
@@ -15,6 +18,9 @@ export const StyleContext = createContext<Props>({
     isPhone: Dimensions.get("window").width < 1000,
     scale: Dimensions.get("window").width / Dimensions.get("window").height,
   }),
+  theme: light,
+  switchTheme: () => {},
+  resize: (value) => 0,
 });
 
 const StyleContextProvider = ({ children }) => {
@@ -25,6 +31,9 @@ const StyleContextProvider = ({ children }) => {
     Dimensions.get("window").width < 1000
   );
   const [styleValues, setStyleValues] = useState(getValues({ isPhone, scale }));
+  const [theme, setTheme] = useState<COLOR>(light);
+  const switchTheme = () => setTheme(theme === light ? dark : light);
+  const resize = (value) => (isPhone ? value * scale : value);
 
   useEffect(() => {
     const updateScale = () => {
@@ -44,6 +53,9 @@ const StyleContextProvider = ({ children }) => {
     scale,
     isPhone,
     styleValues,
+    theme,
+    switchTheme,
+    resize,
   };
 
   return (
