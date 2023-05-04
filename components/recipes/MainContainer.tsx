@@ -12,7 +12,7 @@ import RecipeIngredients from "./RecipeIngredients";
 import RecipeSteps from "./RecipeSteps";
 
 type DataContainer_Props = {
-  data: OneRecipe | undefined;
+  data: OneRecipe;
   closeRecipeHandler: () => void;
   deleteRecipe: (recipeID: number) => void;
 };
