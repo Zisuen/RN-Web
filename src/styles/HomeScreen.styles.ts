@@ -1,12 +1,16 @@
 import { StyleSheet } from "react-native";
 
-const homeScreen_style = ({ scale, isPhone, styleValues, theme, resize }) => {
+const homeScreen_style = ({ styleValues, theme, resize }) => {
   return StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
       backgroundColor: "lightgrey",
+      paddingHorizontal: 100,
+    },
+    innerContainer: {
+      flex: 1,
+      // paddingHorizontal: 100,
+      backgroundColor: "lightblue",
     },
     text: {
       fontSize: styleValues.text.large,
