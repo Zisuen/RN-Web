@@ -1,11 +1,11 @@
 import React from "react";
 import { useContext } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
-import getStyle from "../../config/styles/getStyle";
-import { OneRecipe, RecipesState } from "../../store/recipeSlice";
-import { ThemesContext } from "../../store/ThemesContext";
+import getStyle from "../../../config/styles/getStyle";
+import { OneRecipe, RecipesState } from "../../../store/recipeSlice";
+import { ThemesContext } from "../../../store/ThemesContext";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../../store/store";
 import RecipeLabel from "./RecipeLabel";
 
 const DataContainer = ({ selectHandler }) => {

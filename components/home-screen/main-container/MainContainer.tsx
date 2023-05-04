@@ -2,14 +2,14 @@ import React from "react";
 import { useContext } from "react";
 import { ScrollView, View } from "react-native";
 import { TouchableOpacity } from "react-native-web";
-import getStyle from "../../config/styles/getStyle";
-import { OneRecipe } from "../../store/recipeSlice";
-import { ThemesContext } from "../../store/ThemesContext";
+import getStyle from "../../../config/styles/getStyle";
+import { OneRecipe } from "../../../store/recipeSlice";
+import { ThemesContext } from "../../../store/ThemesContext";
 import DeleteBtn from "./DeleteBtn";
-import MainHeader from "./MainHeader";
+import MainHeader from "./main-header/MainHeader";
 import RecipeInfo from "./RecipeInfo";
-import RecipeIngredients from "./RecipeIngredients";
-import RecipeSteps from "./RecipeSteps";
+import RecipeIngredients from "./recipe-ingredients/RecipeIngredients";
+import RecipeSteps from "./recipe-steps/RecipeSteps";
 
 type DataContainer_Props = {
   data: OneRecipe;

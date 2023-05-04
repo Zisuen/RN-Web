@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image } from "react-native";
-import getAsset from "../../config/assets";
+import getAsset from "../../../../config/assets";
 
 const CloseBtn = ({ closeRecipe }) => {
   return (

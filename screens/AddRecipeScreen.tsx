@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import AppWrapper from "../components/AppWrapper";
 import TopBar from "../components/TopBar/TopBar";
-import AppText from "../components/AppText";
+import AppText from "../components/custom-components/AppText";
 import { addRecipe } from "../store/recipeSlice";
 import AddRecipeForm from "../components/addRecipe-screen/AddRecipeForm";
 import { useState } from "react";

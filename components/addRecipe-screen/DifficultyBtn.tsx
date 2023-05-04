@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import AppText from "../custom-components/AppText";
 
 export type DIFF_OPTIONS = "Easy" | "Medium" | "Hard";
 

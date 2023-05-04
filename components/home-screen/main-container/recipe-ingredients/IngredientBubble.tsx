@@ -1,8 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import { ThemesContext } from "../../../../store/ThemesContext";
+import AppText from "../../../custom-components/AppText";
 
 const IngredientBubble = ({ ingredient, id }) => {
   const theme = useContext(ThemesContext).theme;

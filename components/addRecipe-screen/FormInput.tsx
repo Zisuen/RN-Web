@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import AppText from "../custom-components/AppText";
 import DifficultyBtn, { DIFF_OPTIONS } from "./DifficultyBtn";
 
 type Form_Props = {

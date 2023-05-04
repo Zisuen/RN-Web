@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity, Image } from "react-native-web";
-import getAsset from "../../config/assets";
-import AppText from "../AppText";
+import getAsset from "../../../config/assets";
+import AppText from "../../custom-components/AppText";
 
 const DeleteBtn = ({ deleteRecipe, keyToDelete }) => {
   const [hasHover, setHasHover] = useState(false);

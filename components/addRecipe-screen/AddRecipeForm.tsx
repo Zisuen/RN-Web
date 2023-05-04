@@ -7,7 +7,7 @@ import { TouchableOpacity } from "react-native-web";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import AppText from "../custom-components/AppText";
 import { DIFF_OPTIONS } from "./DifficultyBtn";
 import FormInput from "./FormInput";
 import UploadBtn from "./UploadBtn";

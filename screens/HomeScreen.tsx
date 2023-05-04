@@ -6,13 +6,12 @@ import { OneRecipe } from "../store/recipeSlice";
 
 import AppWrapper from "../components/AppWrapper";
 import TopBar from "../components/TopBar/TopBar";
-import DataContainer from "../components/recipes/DataContainer";
-import MainContainer from "../components/recipes/MainContainer";
-import AppBody from "../components/AppBody";
+import DataContainer from "../components/home-screen/data-container/DataContainer";
+import MainContainer from "../components/home-screen/main-container/MainContainer";
+import AppBody from "../components/home-screen/AppBody";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
-
   const [selectedRecipe, setSelectedRecipe] = useState<OneRecipe | {}>();
   const selectRecipeHandler = (recipe: OneRecipe | {}) => {
     setSelectedRecipe(recipe);

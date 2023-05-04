@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import AppText from "../AppText";
+import AppText from "../../../custom-components/AppText";
 import IngredientBubble from "./IngredientBubble";
 
 const RecipeIngredients = ({ ingredients }) => {

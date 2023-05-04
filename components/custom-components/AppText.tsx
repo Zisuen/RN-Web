@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Text } from "react-native";
-import { ThemesContext } from "../store/ThemesContext";
+import { ThemesContext } from "../../store/ThemesContext";
 
 type AppText_Props = {
   children?: React.ReactNode;

@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import { ThemesContext } from "../../../../store/ThemesContext";
+import AppText from "../../../custom-components/AppText";
 
 const StepBubble = ({ item, index }) => {
   const theme = useContext(ThemesContext).theme;

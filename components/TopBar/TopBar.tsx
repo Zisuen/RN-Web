@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 
 import getAsset from "../../config/assets";
-import AppText from "../AppText";
+import AppText from "../custom-components/AppText";
 import NavBtn from "./NavBtn";
 import ThemeSwitch from "./ThemeSwitch";
 

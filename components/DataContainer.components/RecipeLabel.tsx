@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { TouchableOpacity } from "react-native";
-import getStyle from "../../config/styles/getStyle";
-import { ThemesContext } from "../../store/ThemesContext";
-import AppText from "../AppText";
+import getStyle from "../../../config/styles/getStyle";
+import { ThemesContext } from "../../../store/ThemesContext";
+import AppText from "../../custom-components/AppText";
 
 const RecipeLabel = ({ item, handleSelectLabel }) => {
   const isWeb = useContext(ThemesContext).appData.isWeb;

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import AppText from "../AppText";
+import AppText from "../../../custom-components/AppText";
 import StepBubble from "./StepBubble";
 
 const RecipeSteps = ({ steps }) => {
