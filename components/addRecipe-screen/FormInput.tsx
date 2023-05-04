@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { ThemesContext } from "../../store/ThemesContext";
 import AppText from "../AppText";
-import DifficultyBtn from "./DifficultyBtn";
+import DifficultyBtn, { DIFF_OPTIONS } from "./DifficultyBtn";
 
 type Form_Props = {
   formTitle:
@@ -12,10 +12,11 @@ type Form_Props = {
     | "Recipe Ingredients"
     | "Recipe Steps";
   size: "small" | "medium" | "large";
+  current: string | DIFF_OPTIONS;
   handler: (value) => void;
 };
 
-const FormInput = ({ formTitle, size, handler }: Form_Props) => {
+const FormInput = ({ formTitle, size, current, handler }: Form_Props) => {
   const theme = useContext(ThemesContext).theme;
   const getSize = (dim: "small" | "medium" | "large"): string => {
     switch (dim) {
@@ -37,10 +38,10 @@ const FormInput = ({ formTitle, size, handler }: Form_Props) => {
     handler(difficult);
   };
 
-  const [userInput, onChangeText] = useState("");
+  // const [userInput, onChangeText] = useState("");
   const changeHandle = (textInput) => {
     handler(textInput);
-    onChangeText(textInput);
+    // onChangeText(textInput);
   };
 
   return (
@@ -49,7 +50,7 @@ const FormInput = ({ formTitle, size, handler }: Form_Props) => {
       {formTitle !== "Recipe Difficulty" ? (
         <TextInput
           onChangeText={changeHandle}
-          value={userInput}
+          value={current}
           style={[
             styles.textInput,
             { backgroundColor: theme.neutral, width: getSize(size) },
@@ -59,17 +60,17 @@ const FormInput = ({ formTitle, size, handler }: Form_Props) => {
         <View style={{ flexDirection: "row" }}>
           <DifficultyBtn
             type="Easy"
-            chosen={chosenDifficulty}
+            chosen={current}
             choiceHandle={chooseDifficulty}
           />
           <DifficultyBtn
             type="Medium"
-            chosen={chosenDifficulty}
+            chosen={current}
             choiceHandle={chooseDifficulty}
           />
           <DifficultyBtn
             type="Hard"
-            chosen={chosenDifficulty}
+            chosen={current}
             choiceHandle={chooseDifficulty}
           />
         </View>

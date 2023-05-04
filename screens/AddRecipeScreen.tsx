@@ -44,6 +44,15 @@ const AddRecipeScreen = () => {
       steps,
     };
     setTestRecipe(new_Test_Recipe);
+    const newDish = {
+      key: id,
+      name,
+      time: duration,
+      difficulty,
+      ingredients: ingredients.split(","),
+      steps: steps.split("."),
+    };
+    setNewRecipe(newDish);
   };
   return (
     <AppWrapper>
@@ -51,12 +60,22 @@ const AddRecipeScreen = () => {
       <AppText style={styles.title}>Add Recipe</AppText>
       <AddRecipeForm handleNewRecipe={addRecipeHandler} />
       <AppText>Submit Recipe</AppText>
-      <Text>{testRecipe.id}</Text>
+      {/* <Text>{testRecipe.id}</Text>
       <Text>{testRecipe.name}</Text>
       <Text>{testRecipe.duration}</Text>
       <Text>{testRecipe.difficulty}</Text>
       <Text>{testRecipe.ingredients}</Text>
-      <Text>{testRecipe.steps}</Text>
+      <Text>{testRecipe.steps}</Text> */}
+      <Text>{newRecipe?.key}</Text>
+      <Text>{newRecipe?.name}</Text>
+      <Text>{newRecipe?.time}</Text>
+      <Text>{newRecipe?.difficulty}</Text>
+      <Text>
+        {newRecipe?.ingredients[0]} and {newRecipe?.ingredients.length}
+      </Text>
+      <Text>
+        {newRecipe?.steps[0]} and {newRecipe?.steps.length}
+      </Text>
     </AppWrapper>
   );
 };

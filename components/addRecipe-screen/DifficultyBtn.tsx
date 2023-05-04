@@ -6,7 +6,7 @@ import { TouchableOpacity } from "react-native-web";
 import { ThemesContext } from "../../store/ThemesContext";
 import AppText from "../AppText";
 
-type DIFF_OPTIONS = "Easy" | "Medium" | "Hard";
+export type DIFF_OPTIONS = "Easy" | "Medium" | "Hard";
 
 type DifficultyBtn_Props = {
   type: DIFF_OPTIONS;
