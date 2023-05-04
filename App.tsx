@@ -17,7 +17,11 @@ const App = () => {
     <Provider store={store}>
       <ThemesContextProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
+          <Stack.Navigator
+            screenOptions={{ headerShown: false }}
+            initialRouteName="AddRecipe"
+          >
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="AddRecipe" component={AddRecipeScreen} />
           </Stack.Navigator>
