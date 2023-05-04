@@ -4,12 +4,12 @@ import { View, StyleSheet } from "react-native";
 import { ThemesContext } from "../../store/ThemesContext";
 import AppText from "../AppText";
 
-const IngredientBubble = ({ ingredient, key }) => {
+const IngredientBubble = ({ ingredient, id }) => {
   const theme = useContext(ThemesContext).theme;
 
   return (
     <View
-      key={key}
+      key={id}
       style={[
         styles.ingredientBubble,
         {

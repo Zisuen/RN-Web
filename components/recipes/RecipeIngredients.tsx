@@ -9,7 +9,7 @@ const RecipeIngredients = ({ ingredients }) => {
       <AppText style={styles.titleText}>Dish Ingredients</AppText>
       <View style={styles.ingredientsContainer}>
         {ingredients.map((ingredient, index) => (
-          <IngredientBubble key={index} ingredient={ingredient} />
+          <IngredientBubble id={index} ingredient={ingredient} />
         ))}
       </View>
     </View>
@@ -20,7 +20,6 @@ export default RecipeIngredients;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "lightgreen",
     marginBottom: 20,
   },
   titleText: {

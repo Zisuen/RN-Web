@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 40,
-    backgroundColor: "lightgrey",
   },
   titleChosen: {
     marginTop: 20,

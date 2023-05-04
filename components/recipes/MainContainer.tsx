@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View } from "react-native";
 import getStyle from "../../config/styles/getStyle";
 import { OneRecipe } from "../../store/recipeSlice";
 import { ThemesContext } from "../../store/ThemesContext";
@@ -23,21 +23,19 @@ const MainContainer = ({ data, closeRecipeHandler }: DataContainer_Props) => {
   return (
     <ScrollView style={[styles.mainBodyContainer, { flex: 3 }]}>
       {data ? (
-        <>
+        <View key={Math.random()}>
           <MainHeader
             data={{ title: data.name, isChosen: true }}
             closeRecipe={closeRecipeHandler}
           />
-          <View
-            style={{ flex: 1, paddingTop: 20, backgroundColor: "lightblue" }}
-          >
+          <View style={{ flex: 1, paddingTop: 20 }}>
             <RecipeInfo
               recipeInfo={{ time: data.time, difficulty: data.difficulty }}
             />
             <RecipeIngredients ingredients={data.ingredients} />
             <RecipeSteps steps={data.steps} />
           </View>
-        </>
+        </View>
       ) : (
         <MainHeader
           data={{ title: emptyMsg, isChosen: false }}
