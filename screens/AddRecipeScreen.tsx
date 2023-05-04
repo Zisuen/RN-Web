@@ -1,19 +1,15 @@
 import React from "react";
-import { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { useSelector } from "react-redux";
-import { TouchableOpacity } from "react-native-web";
+
+import { StyleSheet } from "react-native";
+import { useDispatch } from "react-redux";
 import AppWrapper from "../components/AppWrapper";
 import TopBar from "../components/TopBar/TopBar";
-import ViewHelper from "../components/ViewHelper";
 import AppText from "../components/AppText";
-
-import getStyle from "../config/styles/getStyle";
-import { ThemesContext } from "../store/ThemesContext";
-import { RootState } from "../store/store";
+import { addRecipe } from "../store/recipeSlice";
 import AddRecipeForm from "../components/addRecipe-screen/AddRecipeForm";
 import { useState } from "react";
 import { OneRecipe } from "../store/recipeSlice";
+import { submit } from "../store/idSlice";
 
 const empty = {
   id: 99,
@@ -25,8 +21,8 @@ const empty = {
 };
 
 const AddRecipeScreen = () => {
+  const dispatch = useDispatch();
   const [newRecipe, setNewRecipe] = useState<OneRecipe>();
-  const [testRecipe, setTestRecipe] = useState(empty);
   const addRecipeHandler = ({
     id,
     name,
@@ -35,47 +31,23 @@ const AddRecipeScreen = () => {
     ingredients,
     steps,
   }) => {
-    const new_Test_Recipe = {
-      id,
-      name,
-      duration,
-      difficulty,
-      ingredients,
-      steps,
-    };
-    setTestRecipe(new_Test_Recipe);
     const newDish = {
       key: id,
       name,
       time: duration,
       difficulty,
-      ingredients: ingredients.split(","),
-      steps: steps.split("."),
+      ingredients: ingredients.split(", "),
+      steps: steps.split(". "),
     };
     setNewRecipe(newDish);
+    dispatch(addRecipe(newDish));
+    dispatch(submit());
   };
   return (
     <AppWrapper>
       <TopBar />
       <AppText style={styles.title}>Add Recipe</AppText>
       <AddRecipeForm handleNewRecipe={addRecipeHandler} />
-      <AppText>Submit Recipe</AppText>
-      {/* <Text>{testRecipe.id}</Text>
-      <Text>{testRecipe.name}</Text>
-      <Text>{testRecipe.duration}</Text>
-      <Text>{testRecipe.difficulty}</Text>
-      <Text>{testRecipe.ingredients}</Text>
-      <Text>{testRecipe.steps}</Text> */}
-      <Text>{newRecipe?.key}</Text>
-      <Text>{newRecipe?.name}</Text>
-      <Text>{newRecipe?.time}</Text>
-      <Text>{newRecipe?.difficulty}</Text>
-      <Text>
-        {newRecipe?.ingredients[0]} and {newRecipe?.ingredients.length}
-      </Text>
-      <Text>
-        {newRecipe?.steps[0]} and {newRecipe?.steps.length}
-      </Text>
     </AppWrapper>
   );
 };
@@ -86,5 +58,6 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     fontSize: 50,
+    marginBottom: 20,
   },
 });

@@ -13,6 +13,7 @@ type Props = {
 
 const MainHeader = ({ data, closeRecipe }: Props) => {
   const { title, isChosen } = data;
+
   return (
     <View style={styles.container}>
       <AppText style={isChosen ? styles.titleChosen : styles.titleNotChosen}>

@@ -1,37 +1,41 @@
 import React from "react";
-import { useContext, useState } from "react";
-import { View } from "react-native";
-import { ThemesContext } from "../store/ThemesContext";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeRecipe } from "../store/recipeSlice";
+import { OneRecipe } from "../store/recipeSlice";
 
 import AppWrapper from "../components/AppWrapper";
 import TopBar from "../components/TopBar/TopBar";
-import getStyle from "../config/styles/getStyle";
 import DataContainer from "../components/recipes/DataContainer";
 import MainContainer from "../components/recipes/MainContainer";
-import { OneRecipe } from "../store/recipeSlice";
+import AppBody from "../components/AppBody";
 
 const HomeScreen = () => {
-  const theme = useContext(ThemesContext);
-  const styles = getStyle(theme.appData.isWeb);
+  const dispatch = useDispatch();
 
-  const [selectedRecipe, setSelectedRecipe] = useState<OneRecipe>();
-  const selectRecipeHandler = (recipe: OneRecipe) => {
+  const [selectedRecipe, setSelectedRecipe] = useState<OneRecipe | {}>();
+  const selectRecipeHandler = (recipe: OneRecipe | {}) => {
     setSelectedRecipe(recipe);
   };
   const deselectRecipeHandler = () => {
     setSelectedRecipe();
   };
+  const deleteRecipeHandler = (recipeID: number) => {
+    setSelectedRecipe();
+    dispatch(removeRecipe(recipeID));
+  };
 
   return (
     <AppWrapper>
       <TopBar />
-      <View style={styles.appBody}>
+      <AppBody>
         <DataContainer selectHandler={selectRecipeHandler} />
         <MainContainer
           data={selectedRecipe}
           closeRecipeHandler={deselectRecipeHandler}
+          deleteRecipe={deleteRecipeHandler}
         />
-      </View>
+      </AppBody>
     </AppWrapper>
   );
 };

@@ -19,6 +19,18 @@ const getAsset = () => {
     closeBtn: isDark
       ? require("../assets/Icons/close_dark.png")
       : require("../assets/Icons/close_light.png"),
+    uploadBtn: isDark
+      ? require("../assets/Icons/upload_dark.png")
+      : require("../assets/Icons/upload_light.png"),
+    uploadBtnOff: isDark
+      ? require("../assets/Icons/upload_dark_Off.png")
+      : require("../assets/Icons/upload_light_Off.png"),
+    deteleBtn: isDark
+      ? require("../assets/Icons/delete_dark.png")
+      : require("../assets/Icons/delete_light.png"),
+    deleteBtnOff: isDark
+      ? require("../assets/Icons/delete_dark_Off.png")
+      : require("../assets/Icons/delete_light_Off.png"),
   };
 };
 

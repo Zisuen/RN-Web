@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 
 import { useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import { ThemesContext } from "../../store/ThemesContext";
 import AppText from "../AppText";
 import { DIFF_OPTIONS } from "./DifficultyBtn";
 import FormInput from "./FormInput";
+import UploadBtn from "./UploadBtn";
 
 const AddRecipeForm = ({ handleNewRecipe }) => {
   const theme = useContext(ThemesContext).theme;
@@ -37,21 +38,38 @@ const AddRecipeForm = ({ handleNewRecipe }) => {
   const stepsHandler = (value) => {
     setR_Steps(value);
   };
+  const [message, setMessage] = useState("");
+  const printMessage = (isSuccess: boolean) => {
+    if (isSuccess) {
+      setMessage("Recipe Added!");
+    } else {
+      setMessage("Missing Data.");
+    }
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  };
 
   const sendNewRecipe = () => {
-    handleNewRecipe({
-      id: r_Id,
-      name: r_Name,
-      duration: r_Duration,
-      difficulty: r_Difficulty,
-      ingredients: r_Ingredients,
-      steps: r_Steps,
-    });
-    setR_Name("");
-    setR_Duration("");
-    setR_Difficulty("Easy");
-    setR_Ingredients("");
-    setR_Steps("");
+    const allData = r_Name && r_Duration && r_Ingredients && r_Steps;
+    if (allData) {
+      handleNewRecipe({
+        id: r_Id,
+        name: r_Name,
+        duration: r_Duration,
+        difficulty: r_Difficulty,
+        ingredients: r_Ingredients,
+        steps: r_Steps,
+      });
+      setR_Name("");
+      setR_Duration("");
+      setR_Difficulty("Easy");
+      setR_Ingredients("");
+      setR_Steps("");
+      printMessage(true);
+    } else {
+      printMessage(false);
+    }
   };
 
   return (
@@ -87,16 +105,11 @@ const AddRecipeForm = ({ handleNewRecipe }) => {
         current={r_Steps}
         handler={stepsHandler}
       />
-      <Text>{r_Id}</Text>
-      <Text>{r_Name}</Text>
-      <Text>{r_Duration}</Text>
-      <Text>{r_Difficulty}</Text>
-      <Text>{r_Ingredients}</Text>
-      <Text>{r_Steps}</Text>
-      <TouchableOpacity
-        style={{ width: 50, height: 50, backgroundColor: "red" }}
-        onPress={sendNewRecipe}
-      />
+      <View style={styles.uploadContainer}>
+        <AppText style={styles.uploadText}>Submit Recipe</AppText>
+        <UploadBtn handle={sendNewRecipe} />
+        <AppText style={styles.message}>{message}</AppText>
+      </View>
     </View>
   );
 };
@@ -105,7 +118,6 @@ export default AddRecipeForm;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     width: "95%",
     padding: 25,
     borderWidth: 1,
@@ -115,5 +127,15 @@ const styles = StyleSheet.create({
   recipeId: {
     fontSize: 25,
     marginBottom: 20,
+  },
+  uploadContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  uploadText: {
+    fontSize: 40,
+  },
+  message: {
+    fontSize: 50,
   },
 });

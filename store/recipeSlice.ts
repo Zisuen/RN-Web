@@ -63,8 +63,18 @@ export const recipeSlice = createSlice({
     addRecipe: (state, action: PayloadAction<OneRecipe>) => {
       state.push(action.payload);
     },
+    // removeRecipe: (state, action: PayloadAction<number>) => {
+    //   console.log("Removing id: " + action.payload);
+    //   state = state.filter((recipe) => recipe.key !== action.payload);
+    // },
     removeRecipe: (state, action: PayloadAction<number>) => {
-      state.filter((recipe) => recipe.key !== action.payload);
+      console.log("Removing id: " + action.payload);
+      const indexToRemove = state.findIndex(
+        (recipe) => recipe.key === action.payload
+      );
+      if (indexToRemove !== -1) {
+        state.splice(indexToRemove, 1);
+      }
     },
   },
 });
