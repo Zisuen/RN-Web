@@ -1,19 +1,20 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import HomeScreen from "./src/screens/HomeScreen";
+import StyleContextProvider from "./src/store/StyleContext";
+
 const App = () => {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Git hub works ?</Text>
-    </View>
+    <StyleContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </StyleContextProvider>
   );
 };
-
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
