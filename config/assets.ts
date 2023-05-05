@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { StyleContext } from "../src/store/StyleContext";
 import { ThemesContext } from "../store/ThemesContext";
 
 const getAsset = () => {
-  const isDark = useContext(ThemesContext).isDark;
+  // const isDark = useContext(ThemesContext).isDark;
+  const isDark = useContext(StyleContext).theme.isDark;
   return {
     logo: isDark
       ? require("../assets/Icons/logo_dark.png")
