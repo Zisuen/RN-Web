@@ -37,6 +37,8 @@ export type STYLE = {
     medium: number;
     large: number;
     siteTitle: number;
+    subTitle: number;
+    smallTitle: number;
   };
   logo: {
     small_set: number;
@@ -54,6 +56,8 @@ export const getValues = ({ isPhone, scale }): STYLE => {
       medium: getSize(30),
       large: getSize(50),
       siteTitle: !isPhone ? 30 : 25,
+      subTitle: !isPhone ? 25 : 20,
+      smallTitle: !isPhone ? 20 : 15,
     },
     logo: {
       small_set: isPhone ? 42 : 52,
