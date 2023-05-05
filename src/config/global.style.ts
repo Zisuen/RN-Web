@@ -3,24 +3,27 @@ export type COLOR = {
   primary: string;
   secondary: string;
   tertiery: string;
+  other: string;
   text: string;
   development: string;
 };
 
 export const light: COLOR = {
   isDark: false,
-  primary: "#9964ee",
+  primary: "#cd7d5e",
   secondary: "#ee6631",
   tertiery: "#b9e9f2",
+  other: "#774aba",
   text: "#000000",
   development: "#d5fdff",
 };
 
 export const dark: COLOR = {
   isDark: true,
-  primary: "#080a2d",
-  secondary: "#3d3d3d",
+  primary: "#1f1e4b",
+  secondary: "#100f2e",
   tertiery: "#3f4973",
+  other: "#414141",
   text: "#ffffff",
   development: "#d5fdff",
 };
