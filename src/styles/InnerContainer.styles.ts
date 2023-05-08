@@ -6,8 +6,6 @@ const innerContainer_style = ({ styleValues, theme }) => {
       flex: 1,
       width: "100%",
       maxWidth: styleValues.screen.maximumWidth,
-      // backgroundColor: theme.primary,
-      backgroundColor: theme.development,
     },
   });
 };

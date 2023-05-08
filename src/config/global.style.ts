@@ -6,6 +6,8 @@ export type COLOR = {
   other: string;
   text: string;
   development: string;
+  closeBtn: string;
+  darkBackgroundText: string;
 };
 
 export const light: COLOR = {
@@ -16,6 +18,8 @@ export const light: COLOR = {
   other: "#774aba",
   text: "#000000",
   development: "#d5fdff",
+  closeBtn: "#a21414",
+  darkBackgroundText: "#ffffff",
 };
 
 export const dark: COLOR = {
@@ -26,6 +30,8 @@ export const dark: COLOR = {
   other: "#414141",
   text: "#ffffff",
   development: "#d5fdff",
+  closeBtn: "#711616",
+  darkBackgroundText: "#ffffff",
 };
 
 export type STYLE = {

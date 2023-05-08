@@ -28,9 +28,11 @@ const Title = ({ closeRecipe, recipeName, isValid }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <TouchableOpacity onPress={closeRecipe}>
-        <Image style={styles.closeBtn} source={getAsset().closeBtn} />
-      </TouchableOpacity>
+      {isValid && (
+        <TouchableOpacity onPress={closeRecipe}>
+          <Image style={styles.closeBtn} source={getAsset().closeBtn} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

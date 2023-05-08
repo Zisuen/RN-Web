@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { OneRecipe } from "../../../store/recipeSlice";
 import { StyleContext } from "../../../store/StyleContext";
 import Information from "./Information";
@@ -24,18 +24,23 @@ const PrintRecipe = ({ recipe, closeRecipe }: Props) => {
   });
   return (
     <View style={styles.displayContainer}>
-      <Title
-        isValid={isValid}
-        recipeName={recipe.name}
-        closeRecipe={closeRecipe}
-      />
-      {isValid && (
-        <>
-          <Information difficulty={recipe.difficulty} duration={recipe.time} />
-          <Ingredients ingredients={recipe.ingredients} />
-          <Steps steps={recipe.steps} />
-        </>
-      )}
+      <ScrollView>
+        <Title
+          isValid={isValid}
+          recipeName={recipe.name}
+          closeRecipe={closeRecipe}
+        />
+        {isValid && (
+          <>
+            <Information
+              difficulty={recipe.difficulty}
+              duration={recipe.time}
+            />
+            <Ingredients ingredients={recipe.ingredients} />
+            <Steps steps={recipe.steps} />
+          </>
+        )}
+      </ScrollView>
     </View>
   );
 };

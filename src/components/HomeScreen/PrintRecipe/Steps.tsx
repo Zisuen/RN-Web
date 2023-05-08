@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { StyleContext } from "../../../store/StyleContext";
 
 const Steps = ({ steps }) => {
@@ -29,9 +29,9 @@ const Steps = ({ steps }) => {
       fontSize: styleValues.text.subTitle,
     },
   });
-  const getSteps = ({ item }) => {
+  const getSteps = ({ item, index }) => {
     return (
-      <View style={styles.ingredient}>
+      <View key={index} style={styles.ingredient}>
         <Text style={styles.ingredientText}>{item}</Text>
       </View>
     );
@@ -39,7 +39,7 @@ const Steps = ({ steps }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList data={steps} renderItem={getSteps} />
+      {steps.map((item, index) => getSteps({ item, index }))}
     </View>
   );
 };

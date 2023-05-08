@@ -6,7 +6,7 @@ const recipes_style = ({ isPhone, top, theme }) => {
       flex: 1,
       marginTop: isPhone && top + 70,
       paddingBottom: 10,
-      paddingTop: isPhone ? 20 : 10,
+      paddingTop: isPhone ? 15 : 10,
       paddingHorizontal: isPhone && 10,
       alignItems: "center",
       backgroundColor: isPhone && theme.primary,

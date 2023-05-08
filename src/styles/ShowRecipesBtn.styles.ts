@@ -1,11 +1,18 @@
 import { StyleSheet } from "react-native";
-const showRecipesBtn_style = () => {
+const showRecipesBtn_style = ({ theme, styleValues }) => {
   return StyleSheet.create({
     container: {
-      width: "100%",
-      marginBottom: 10,
-      marginHorizontal: 10,
-      backgroundColor: "lightyellow",
+      width: "75%",
+      alignItems: "center",
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      borderRadius: 20,
+      backgroundColor: theme.other,
+    },
+    text: {
+      fontSize: styleValues.text.smallTitle,
+      fontWeight: "bold",
+      color: theme.text,
     },
   });
 };
