@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import getAsset from "../../../config/assets";
 import { StyleContext } from "../../../store/StyleContext";
+
 const Title = ({ closeRecipe, recipeName, isValid }) => {
-  const { styleValues, theme } = useContext(StyleContext);
+  const { theme, styleValues } = useContext(StyleContext);
   const errorMsg = "Select a recipe.";
   const title = recipeName === "dummy" ? errorMsg : recipeName;
+
   const styles = StyleSheet.create({
     container: {
       flexDirection: "row",
@@ -25,6 +27,7 @@ const Title = ({ closeRecipe, recipeName, isValid }) => {
       fontSize: styleValues.text.siteTitle,
     },
   });
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>

@@ -15,7 +15,7 @@ type Props = {
 };
 
 const PrintRecipe = ({ recipe, closeRecipe, deleteHandle }: Props) => {
-  const { theme, resize } = useContext(StyleContext);
+  const { resize } = useContext(StyleContext);
   const isValid = recipe.name !== "dummy";
   const styles = StyleSheet.create({
     displayContainer: {
