@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { Alert } from "react-native";
 import RootContainer from "../components/RootContainer/RootContainer";
 import InnerContainer from "../components/InnerContainer";
 import DataContainer from "../components/HomeScreen/DataContainer";
 import Recipes from "../components/HomeScreen/Recipes";
 import PrintRecipe from "../components/HomeScreen/PrintRecipe/PrintRecipe";
 import { OneRecipe } from "../store/recipeSlice";
+import { useDispatch } from "react-redux";
+import { removeRecipe } from "../store/recipeSlice";
 
 const HomeScreen = () => {
+  const dispatch = useDispatch();
   const emptyRecipe: OneRecipe = {
     key: 99,
     name: "dummy",
@@ -22,6 +26,12 @@ const HomeScreen = () => {
   const closeRecipeHandler = () => {
     setSelectedRecipe(emptyRecipe);
   };
+  const deleteRecipe = (keyToRemove) => {
+    dispatch(removeRecipe(keyToRemove));
+    Alert.alert("Recipe Removed");
+    closeRecipeHandler();
+  };
+
   return (
     <RootContainer>
       <InnerContainer>
@@ -30,6 +40,7 @@ const HomeScreen = () => {
           <PrintRecipe
             recipe={selectedRecipe}
             closeRecipe={closeRecipeHandler}
+            deleteHandle={deleteRecipe}
           />
         </DataContainer>
       </InnerContainer>

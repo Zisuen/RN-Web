@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { OneRecipe } from "../../../store/recipeSlice";
 import { StyleContext } from "../../../store/StyleContext";
+import DeleteBtn from "./DeleteBtn";
 import Information from "./Information";
 import Ingredients from "./Ingredients";
 import Steps from "./Steps";
@@ -10,9 +11,10 @@ import Title from "./Title";
 type Props = {
   recipe: OneRecipe;
   closeRecipe: () => void;
+  deleteHandle: (keyToRemove) => void;
 };
 
-const PrintRecipe = ({ recipe, closeRecipe }: Props) => {
+const PrintRecipe = ({ recipe, closeRecipe, deleteHandle }: Props) => {
   const { theme, resize } = useContext(StyleContext);
   const isValid = recipe.name !== "dummy";
   const styles = StyleSheet.create({
@@ -39,6 +41,9 @@ const PrintRecipe = ({ recipe, closeRecipe }: Props) => {
             <Ingredients ingredients={recipe.ingredients} />
             <Steps steps={recipe.steps} />
           </>
+        )}
+        {isValid && (
+          <DeleteBtn deleteRecipe={deleteHandle} keyToDelete={recipe.key} />
         )}
       </ScrollView>
     </View>

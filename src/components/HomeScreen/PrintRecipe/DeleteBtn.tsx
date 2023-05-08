@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { TouchableOpacity, Image } from "react-native-web";
-import getAsset from "../../../config/assets";
-import AppText from "../../custom-components/AppText";
+import React, { useState, useContext } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import getAsset from "../../../../config/assets";
+import { StyleContext } from "../../../store/StyleContext";
 
 const DeleteBtn = ({ deleteRecipe, keyToDelete }) => {
+  const { theme } = useContext(StyleContext);
   const [hasHover, setHasHover] = useState(false);
   const hoverOn = () => setHasHover(true);
   const hoverOff = () => setHasHover(false);
@@ -13,6 +13,23 @@ const DeleteBtn = ({ deleteRecipe, keyToDelete }) => {
     deleteRecipe(keyToDelete);
     console.log("Removing" + keyToDelete);
   };
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginTop: 50,
+      marginBottom: 100,
+    },
+    deleteBtn: {
+      width: 100,
+      height: 100,
+    },
+    deleteText: {
+      marginLeft: 10,
+      fontSize: 40,
+      color: theme.text,
+    },
+  });
 
   return (
     <View style={styles.container}>
@@ -27,26 +44,9 @@ const DeleteBtn = ({ deleteRecipe, keyToDelete }) => {
           source={!hasHover ? getAsset().deteleBtn : getAsset().deleteBtnOff}
         />
       </TouchableOpacity>
-      {hasHover && <AppText style={styles.deleteText}>Delete Recipe ?</AppText>}
+      {hasHover && <Text style={styles.deleteText}>Delete Recipe ?</Text>}
     </View>
   );
 };
 
 export default DeleteBtn;
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 50,
-    marginBottom: 100,
-  },
-  deleteBtn: {
-    width: 100,
-    height: 100,
-  },
-  deleteText: {
-    marginLeft: 10,
-    fontSize: 40,
-  },
-});

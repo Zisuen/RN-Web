@@ -34,6 +34,7 @@ const RecipeInput = ({ title, size, value, handler, difficulty }: Props) => {
       alignItems: !isPhone ? "center" : "flex-start",
     },
     title: {
+      color: theme.text,
       fontSize: styleValues.text.siteTitle,
       marginBottom: 3,
     },
