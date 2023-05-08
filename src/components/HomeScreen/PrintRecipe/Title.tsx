@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import getAsset from "../../../../config/assets";
+import getAsset from "../../../config/assets";
 import { StyleContext } from "../../../store/StyleContext";
 const Title = ({ closeRecipe, recipeName, isValid }) => {
   const { styleValues, theme } = useContext(StyleContext);

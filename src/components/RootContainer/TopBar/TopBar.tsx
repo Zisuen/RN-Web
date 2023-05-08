@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StyleContext } from "../../../store/StyleContext";
-import getAsset from "../../../../config/assets";
+import getAsset from "../../../config/assets";
 import ThemeSwitch from "./ThemeSwitch";
 import NavButton from "./NavButton";
 import topBar_style from "../../../styles/TopBar.styles";

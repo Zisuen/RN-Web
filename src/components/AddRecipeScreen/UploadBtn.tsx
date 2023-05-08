@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
-import getAsset from "../../../config/assets";
+import getAsset from "../../config/assets";
 import { StyleContext } from "../../store/StyleContext";
+
 const UploadBtn = ({ handle }) => {
   const { styleValues } = useContext(StyleContext);
   const [hasHover, setHasHover] = useState(false);

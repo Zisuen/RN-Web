@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TouchableOpacity, Image } from "react-native";
-import getAsset from "../../../../config/assets";
+import getAsset from "../../../config/assets";
 
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { StyleContext } from "../../../store/StyleContext";

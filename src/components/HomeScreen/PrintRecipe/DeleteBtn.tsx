@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import getAsset from "../../../../config/assets";
+import getAsset from "../../../config/assets";
 import { StyleContext } from "../../../store/StyleContext";
 
 const DeleteBtn = ({ deleteRecipe, keyToDelete }) => {
