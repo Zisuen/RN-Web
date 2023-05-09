@@ -1,6 +1,6 @@
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./src/store/store";
 
@@ -24,4 +24,5 @@ const App = () => {
     </Provider>
   );
 };
+
 export default App;
