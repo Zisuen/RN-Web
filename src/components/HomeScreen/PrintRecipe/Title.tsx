@@ -1,3 +1,10 @@
+import { LogBox } from "react-native";
+
+// Ignore log notification by message
+LogBox.ignoreLogs(["Warning: ..."]);
+
+//Ignore all log notifications
+LogBox.ignoreAllLogs();
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import getAsset from "../../../config/assets";
